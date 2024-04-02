@@ -39,7 +39,7 @@ public class Layer {
      */
 
     public String getInfo() {
-        StringBuilder info = new StringBuilder("Layer of crazy shapes: \n");
+        StringBuilder info = new StringBuilder("Layer of crazy shapes:\n");
         for (Shape shape : this.shapes) {
             info.append(shape.toString()).append("\n");
         }
@@ -51,8 +51,13 @@ public class Layer {
      */
 
     public void removeDuplicates() {
-        LinkedHashSet<Shape> shapeSet = new LinkedHashSet<>(shapes);
-        this.shapes = new ArrayList<>(shapeSet);
+        for (int i = 0; i < shapes.size(); i++) {
+            for (int j = i + 1; j < shapes.size(); j++) {
+                if (shapes.get(i).equals(shapes.get(j))) {
+                    shapes.remove(j);
+                }
+            }
+        }
     }
 }
 

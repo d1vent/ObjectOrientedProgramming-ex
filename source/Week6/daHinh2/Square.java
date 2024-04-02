@@ -1,5 +1,7 @@
 package Week6.daHinh2;
 
+import java.util.Objects;
+
 public class Square extends Rectangle {
 
     /**
@@ -97,9 +99,11 @@ public class Square extends Rectangle {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Square square) {
+        if (obj instanceof Square) {
+            Square square = (Square) obj;
             return super.equals(obj) && getSide() == square.getSide();
         }
         return false;
     }
 }
+

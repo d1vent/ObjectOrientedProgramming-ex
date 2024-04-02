@@ -147,7 +147,8 @@ public class Rectangle extends Shape {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Rectangle rectangle) {
+        if (obj instanceof Rectangle) {
+            Rectangle rectangle = (Rectangle) obj;
             return (this.topLeft.equals(rectangle.topLeft)
                     && this.width == rectangle.width && this.length == rectangle.length);
         }

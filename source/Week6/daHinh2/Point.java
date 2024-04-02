@@ -70,7 +70,8 @@ public class Point {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Point p) {
+        if (obj instanceof Point) {
+            Point p = (Point) obj;
             return (this.getPointX() == p.getPointX() && this.getPointY() == p.getPointY());
         }
         return false;

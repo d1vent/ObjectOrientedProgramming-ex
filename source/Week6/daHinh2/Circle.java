@@ -121,7 +121,8 @@ public class Circle extends Shape {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Circle circle) {
+        if (obj instanceof Circle) {
+            Circle circle = (Circle) obj;
             return (this.center.equals(circle.center) && this.radius == circle.radius);
         }
         return false;
