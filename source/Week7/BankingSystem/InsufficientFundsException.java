@@ -1,4 +1,4 @@
-package Week7.BankingSystem;
+
 
 public class InsufficientFundsException extends BankException {
     /**

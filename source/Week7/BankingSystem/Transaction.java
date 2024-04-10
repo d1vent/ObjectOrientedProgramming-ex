@@ -1,4 +1,4 @@
-package Week7.BankingSystem;
+
 
 public class Transaction {
     public static final int TYPE_DEPOSIT_CHECKING = 1;
@@ -38,21 +38,16 @@ public class Transaction {
      */
     private String getTransactionTypeString(int type) {
         switch (type) {
-            case TYPE_DEPOSIT_CHECKING -> {
+            case TYPE_DEPOSIT_CHECKING:
                 return "Nạp tiền vãng lai";
-            }
-            case TYPE_WITHDRAW_CHECKING -> {
+            case TYPE_WITHDRAW_CHECKING:
                 return "Rút tiền vãng lai";
-            }
-            case TYPE_DEPOSIT_SAVINGS -> {
+            case TYPE_DEPOSIT_SAVINGS:
                 return "Nạp tiền tiết kiệm";
-            }
-            case TYPE_WITHDRAW_SAVINGS -> {
+            case TYPE_WITHDRAW_SAVINGS:
                 return "Rút tiền tiết kiệm";
-            }
-            default -> {
+            default:
                 return "Invalid type of transaction";
-            }
         }
     }
 
@@ -61,10 +56,11 @@ public class Transaction {
      * @return transaction summary
      */
     public String getTransactionSummary() {
-        return  "Kiểu giao dịch: "
+        String summary = "Kiểu giao dịch: "
                 + getTransactionTypeString(type) + ". Số dư ban đầu: $"
                 + String.format("%.2f", initialBalance) + ". Số tiền: $"
                 + String.format("%.3f", amount) + ". Số dư cuối: $"
                 + String.format("%.2f", finalBalance) + ".";
+        return summary;
     }
 }

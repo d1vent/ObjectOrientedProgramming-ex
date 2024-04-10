@@ -1,4 +1,4 @@
-package Week7.BankingSystem;
+
 
 import java.io.InputStream;
 import java.util.Collections;
@@ -56,20 +56,11 @@ public class Bank {
      * @return info by name
      */
     public String getCustomerInfoByNameOrder() {
-        List<Customer> customers = this.customerList;
-        Collections.sort(customers, new Comparator<Customer>() {
-            @Override
-            public int compare(Customer o1, Customer o2) {
-                return o1.getFullName().compareTo(o2.getFullName());
-            }
-        });
+        customerList.sort(Comparator.comparing(Customer::getFullName));
         String info = "";
-        for (int i = 0; i < customers.size(); i++) {
-            if (i == customers.size() - 1) {
-                info += customers.get(i).getCustomerInfo();
-            } else {
-                info += customers.get(i).getCustomerInfo() + "\n";
-            }
+        for (Customer customer : customerList) {
+            info += customer.getCustomerInfo();
+            info += "\n";
         }
         return info;
     }
@@ -79,20 +70,11 @@ public class Bank {
      * @return info by id
      */
     public String getCustomerInfoByIdOrder() {
-        List<Customer> customers = this.customerList;
-        Collections.sort(customers, new Comparator<Customer>() {
-            @Override
-            public int compare(Customer o1, Customer o2) {
-                return Long.compare(o1.getIdNumber(), o2.getIdNumber());
-            }
-        });
+        customerList.sort(Comparator.comparingLong(Customer::getFullName));
         String info = "";
-        for (int i = 0; i < customers.size(); i++) {
-            if (i == customers.size() - 1) {
-                info += customers.get(i).getCustomerInfo();
-            } else {
-                info += customers.get(i).getCustomerInfo() + "\n";
-            }
+        for (Customer customer : customerList) {
+            info += customer.getCustomerInfo();
+            info += "\n";
         }
         return info;
     }
